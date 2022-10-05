@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>creativekitten.in administrator</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+	<div class="container border border-light">
+
+		<div class="border border-light rounded mt-3">
+
+			<nav class="navbar navbar-expand-sm bg-light">
+				<!-- Links -->
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="home">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="createProduct">Create Product</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="deleteProduct">Delete Product</a>
+					</li>
+				</ul>
+			</nav>
+
+		</div>
+
+		<div class="container border border-light my-3">
+
+			<form th:action="@{/createProduct}" th:object="${productInput}" method="post" enctype="multipart/form-data">
+
+				<div class="row form-group">
+					<div class="col-md-12 col-lg-6 form-group">
+						<label for="title">Title*</label>
+						<input type="text" name="title" class="form-control" id="title" aria-describedby="title"
+							placeholder="Enter a title" required>
+					</div>
+
+					<div class="col-md-6 col-lg-3 form-group">
+						<label for="originalPrice">Original Price*</label>
+						<input type="text" name="originalPrice" class="form-control" id="originalPrice"
+							aria-describedby="originalPrice" placeholder="Enter Original Price" required>
+					</div>
+
+					<div class="col-md-6 col-lg-3 form-group">
+						<label for="discountedPrice">Discounted Price*</label>
+						<input type="text" name="discountedPrice" class="form-control" id="discountedPrice"
+							aria-describedby="discountedPrice" placeholder="Enter Discounted Price" required>
+					</div>
+
+				</div>
+
+				<div class="row form-group">
+
+					<div class="col form-group">
+						<label for="shortDescription">Short Description*</label>
+						<input type="text" name="shortDescription" class="form-control" id="shortDescription"
+							aria-describedby="shortDescription" placeholder="Enter a shortDescription" required>
+					</div>
+
+				</div>
+
+				<div class="row form-group">
+
+					<div class="col-md-6 col-lg-3 form-group">
+						<label for="stock">Stock*</label>
+						<input type="text" name="stock" class="form-control" id="stock" aria-describedby="stock"
+							placeholder="Number of units" required>
+					</div>
+
+					<div class="col-md-6 col-lg-3 form-group">
+						<label for="taxRate">Tax Rate*</label>
+						<input type="text" name="taxRate" class="form-control" id="taxRate" aria-describedby="taxRate"
+							placeholder="Tax in percent" required>
+					</div>
+
+					<div class="col-md-6 col-lg-3 form-group">
+						<label for="shippingCost">Shipping Cost*</label>
+						<input type="text" name="shippingCost" class="form-control" id="shippingCost"
+							aria-describedby="shippingCost" placeholder="Shipping cost, enter 0 if none" required>
+					</div>
+
+					<div class="col-md-6 col-lg-3 form-group">
+						<label for="deliveryTime">Delivery Time*</label>
+						<input type="text" name="deliveryTime" class="form-control" id="deliveryTime"
+							aria-describedby="deliveryTime" placeholder="Estimated delivery time" required>
+					</div>
+
+				</div>
+
+
+				<div class="row form-group">
+
+					<div class="col-lg-6">
+						<label for="options">Buying Options*</label>
+						<textarea class="form-control" id="options" name="options" rows="2" required></textarea>
+						<small id="optionsHelp" class="form-text text-muted">
+							Example: { "colors" : ["Red", "Green", "Blue"], "capacity" : ["64GB", "128GB"] }
+						</small>
+					</div>
+
+					<div class="col-lg-6">
+						<label for="specifications">Specifications*</label>
+						<textarea class="form-control" id="specifications" name="specifications" rows="2" required></textarea>
+						<small id="specificationsHelp" class="form-text text-muted">
+							Example: { "CPU" : "Qualcomm", "Screen" : "LCD", "Speaker" : "Dual" }
+						</small>
+					</div>
+
+				</div>
+
+
+				<div class="row form-group">
+
+					<div class="col-lg-6">
+						<label for="paragraph1">Paragraph 1*</label>
+						<textarea class="form-control" id="paragraph1" name="paragraph1" rows="3" required></textarea>
+					</div>
+
+					<div class="col-lg-6">
+						<label for="paragraph2">Paragraph 2</label>
+						<textarea class="form-control" id="paragraph2" name="paragraph2" rows="3"></textarea>
+					</div>
+
+				</div>
+
+				<div class="row form-group">
+
+					<div class="col-lg-6">
+						<label for="paragraph3">Paragraph 3</label>
+						<textarea class="form-control" id="paragraph3" name="paragraph3" rows="3"></textarea>
+					</div>
+
+					<div class="col-lg-6">
+						<label for="paragraph4">Paragraph 4</label>
+						<textarea class="form-control" id="paragraph4" name="paragraph4" rows="3"></textarea>
+					</div>
+
+				</div>
+
+				<div class="row form-group">
+
+					<div class="col-md-6 mb-3">
+						<label for="image1" class="form-label">Image 1*</label>
+						<input class="form-control" type="file" id="image1" name="image1" required>
+					</div>
+
+					<div class="col-md-6 mb-3">
+						<label for="image2" class="form-label">Image 2</label>
+						<input class="form-control" type="file" id="image2" name="image2">
+					</div>
+
+					<div class="col-md-6 mb-3">
+						<label for="image3" class="form-label">Image 3</label>
+						<input class="form-control" type="file" id="image3" name="image3">
+					</div>
+
+					<div class="col-md-6 mb-3">
+						<label for="image4" class="form-label">Image 4</label>
+						<input class="form-control" type="file" id="image4" name="image4">
+					</div>
+
+				</div>
+
+
+				<button type="submit" class="btn btn-primary my-3">Submit</button>
+
+			</form>
+
+		</div>
+
+
+		<div class="alert alert-light mt-2">[[${message}]]</div>
+
+
+	</div>
+
+</body>
+
+</html>
